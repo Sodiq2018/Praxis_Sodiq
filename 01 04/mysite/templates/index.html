@@ -8,15 +8,20 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>
-        SILAHKAN DIISI
-    </h1>
-    <form action="" method="">
-        <div class="form-group">
-          <textarea class="form-control" rows="2" id="comment" name="text"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
+    <div class="form">
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{ form }}
+            <textarea class="form-control" rows="2" id="comment" name="nama"></textarea>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    <div class="hasil">
+        {% for i in isi %}
+        {{i.nama}}
+
+        {% endfor %}
+    </div>
     
 </body>
 </html>
