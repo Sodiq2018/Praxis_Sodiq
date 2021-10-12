@@ -15,8 +15,9 @@
             <label>Jenis</label>
             <select class="form-select" name="jenis">
                 <option selected>Pilih</option>
-                <option value="Kering">Kering</option>
-                <option value="Basah">Basah</option>
+                <option value="Dingin">Dingin</option>
+                <option value="Panas">Panas</option>
+                <option value="Biasa">Biasa</option>
             </select>
             <label>Nama</label>
             <input type="text" name="nama" class="form-control">
@@ -34,7 +35,7 @@
                     <th>Aksi</th>
                 </thead>
                 <tbody>
-                    {% for d in data%}
+                {% for d in data%}       
                     <tr>
                         <td>{{forloop.counter}}</td>
                         <td>{{d.nama}}</td>
@@ -43,7 +44,7 @@
                         <td>
                             <a href="" class="btn btn-success">Detail</a>
                             <a href="" class="btn btn-warning">Edit</a>
-                            <a href="hapus/{{d.id}}" class="btn btn-danger">Hapus</a>
+                            <a href="" class="btn btn-danger">Hapus</a>
                         </td>
                     </tr>
                     {% endfor %}

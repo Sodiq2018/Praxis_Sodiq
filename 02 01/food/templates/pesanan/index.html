@@ -14,19 +14,22 @@
     </div>
     <div class="p-5">
         <form action="" method="POST">
+            {% csrf_token %}
             <label>Makanan</label>
             <select class="form-select" name="makanan">
                 <option selected>Pilih</option>
-
-                <option value=""></option>
+                {% for d in dataMakanan %}
+                <option value="{{d.id}}">{{d.nama}}</option>
+                {% endfor %}
             </select>
             <label>Jumlah</label>
             <input type="text" name="jumlah_makanan" class="form-control">
             <label>Minuman</label>
-            <select class="form-select" name="makanan">
+            <select class="form-select" name="minuman">
                 <option selected>Pilih</option>
-
-                <option value=""></option>
+                {% for d in dataMinuman %}
+                <option value="{{d.id}}">{{d.nama}}</option>
+                {% endfor %}
             </select>
             <label>Jumlah</label>
             <input type="text" name="jumlah_minuman" class="form-control"><br>
@@ -37,28 +40,31 @@
                 <thead>
                     <th>No</th>
                     <th>Makanan</th>
-                    <th>Minuman</th>
+                    <th>Jumlah</th>
                     <th>Harga</th>
+                    <th>Minuman</th>
                     <th>Jumlah</th>
                     <th>Harga</th>
                     <th>Aksi</th>
                 </thead>
                 <tbody>
-
+                    {% for d in data %}
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{d.makanan.nama}}</td>
+                        <td>{{d.jumlah_makanan}}</td>
+                        <td>{{d.makanan.harga}}</td>
+                        <td>{{d.minuman.nama}}</td>
+                        <td>{{d.jumlah_minuman}}</td>
+                        <td>{{d.minuman.harga}}</td>
                         <td>
                             <a href="" class="btn btn-success">Detail</a>
                             <a href="" class="btn btn-warning">Edit</a>
                             <a href="" class="btn btn-danger">Hapus</a>
                         </td>
                     </tr>
+                    {% endfor %}
+                    
                 </tbody>
             </table>
         </div>
