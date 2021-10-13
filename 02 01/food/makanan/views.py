@@ -48,3 +48,64 @@ def readPesanan(req):
 def hapus(request, id):
     models.makanan.objects.filter(id= id).delete()
     return redirect('/')
+
+def detail(request, id):
+    data = models.makanan.objects.filter(id= id).first()
+    return render(request, "makanan/detail.html", {
+        "detailData" : data,
+    })
+
+def edit(request, id):
+    if request.POST:
+        input = request.POST['nama']
+        print(input)
+        models.makanan.objects.filter(id= id).update(nama = input)
+        return redirect('/')
+
+    data = models.makanan.objects.filter(id = id).first()
+    return render(request, "makanan/edit.html", {
+        "detailData" : data,
+    })
+
+#Hapus Minuman
+def hapusminuman(request, id):
+    models.minuman.objects.filter(id= id).delete()
+    return redirect('/')
+
+#detail Minuman
+def detailminuman(request, id):
+    data = models.minuman.objects.filter(id= id).first()
+    return render(request, "minuman/detail.html", {
+        "detailData" : data,
+    })
+
+#edit Minuman
+def editminuman(request, id):
+    if request.POST:
+        input = request.POST['nama']
+        print(input)
+        models.minuman.objects.filter(id= id).update(nama = input)
+        return redirect('/')
+
+    data = models.minuman.objects.filter(id = id).first()
+    return render(request, "minuman/edit.html", {
+        "detailData" : data,
+    })
+
+#hapus pesanan
+def hapuspesanan(request, id):
+    models.pesanan.objects.filter(id= id).delete()
+    return redirect('/')
+
+# #detail Pesanan
+# def detailpesanan(request, id):
+#     data = models.pesanan.objects.filter(id= id).first()
+#     return render(request, "pesanan/detail.html", {
+#         "detailData" : data,
+#     })
+
+# def indexpesanan(request):
+#     pesan = models.pesanan.objects.all()
+#     return render(request, "pesanan/index.html", {
+#         "isipesanan" : pesan,
+#     }),
