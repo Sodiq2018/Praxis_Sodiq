@@ -9,6 +9,7 @@
     <title>Document</title>
 </head>
 <body>
+    
     <div class="">
         <div class="p-3 mb-2 bg-primary text-white"><center><h1>SODIQ FOOD</center></h1></div>
     </div>
@@ -36,8 +37,8 @@
             <button type="submit" class="btn btn-primary">Tambah</button>
         </form>
         <div>
-            <table class="table">
-                <thead>
+            <table class="table table-dark table-hover">
+                <thead class="table-success">
                     <th>No</th>
                     <th>Makanan</th>
                     <th>Jumlah</th>
@@ -49,7 +50,7 @@
                 </thead>
                 <tbody>
                     {% for d in data %}
-                    <tr>
+                    <tr class="table-danger">
                         <td>{{forloop.counter}}</td>
                         <td>{{d.makanan.nama}}</td>
                         <td>{{d.jumlah_makanan}}</td>

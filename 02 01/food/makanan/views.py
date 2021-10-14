@@ -70,7 +70,7 @@ def edit(request, id):
 #Hapus Minuman
 def hapusminuman(request, id):
     models.minuman.objects.filter(id= id).delete()
-    return redirect('/')
+    return redirect('/minuman/')
 
 #detail Minuman
 def detailminuman(request, id):
@@ -95,7 +95,7 @@ def editminuman(request, id):
 #hapus pesanan
 def hapuspesanan(request, id):
     models.pesanan.objects.filter(id= id).delete()
-    return redirect('/')
+    return redirect('/pesanan/')
 
 # #detail Pesanan
 # def detailpesanan(request, id):
